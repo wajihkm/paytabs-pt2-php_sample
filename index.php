@@ -18,7 +18,7 @@ $callback_url = null; // Must be public IP address, using HTTPS (try online serv
 //
 
 $pt_holder
-    ->set01PaymentCode('creditcard')
+    ->set01PaymentCode('all') // 'card', 'stcpay', 'amex' ...
     ->set02Transaction('sale', 'ecom')
     ->set03Cart($cart_id, $currency, $amount, $cart_desc)
     ->set04CustomerDetails('first last', 'test@temp.com', '0555555555', 'baha street', 'Dubai', 'Dubai', 'ARE', '12345', '10.10.10.10')
