@@ -12,7 +12,7 @@ $cart_desc = 'Black shirt (2), iPhone cover (1)';
 $amount = 90;
 $currency = 'AED';
 
-$return_url = 'https://localhost/pt2/sample/result.php';
+$return_url = 'https://localhost/pt2/sample/result.php'; // Must be HTTPS, otherwise no post data from paytabs
 $callback_url = null; // Must be public IP address, using HTTPS (try online service like: https://webhook.site)
 
 //
@@ -22,7 +22,7 @@ $pt_holder
     ->set02Transaction('sale', 'ecom')
     ->set03Cart($cart_id, $currency, $amount, $cart_desc)
     ->set04CustomerDetails('first last', 'test@temp.com', '0555555555', 'baha street', 'Dubai', 'Dubai', 'ARE', '12345', '10.10.10.10')
-    ->set05ShippingDetails(true, null, null, null, null, null, null, null, null, null)
+    ->set05ShippingDetails(true)
     ->set06HideShipping(false)
     ->set07URLs($return_url, $callback_url)
     ->set09Framed(false);
