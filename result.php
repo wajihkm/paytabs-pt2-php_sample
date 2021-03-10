@@ -40,7 +40,15 @@ pt_echo_result($verify_result->success, $verify_result->message);
 
 //
 
+
+$res_body = var_export($_REQUEST, true);
+echo "<hr> Response Body: <p>{$res_body}</p>";
+
+//
+
 echo "<hr> Return to <a href='index.php'> the main </a> page";
+
+//
 
 function pt_echo_result($success, $message = null)
 {
