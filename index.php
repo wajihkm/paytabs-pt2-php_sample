@@ -3,7 +3,7 @@
 require_once 'config/config.php';
 
 
-$pt_holder = new PaytabsHolder2();
+$pt_holder = new PaytabsRequestHolder();
 
 //
 
@@ -18,14 +18,16 @@ $callback_url = null; // Must be public IP address, using HTTPS (try online serv
 //
 
 $pt_holder
-    ->set01PaymentCode('all') // 'card', 'stcpay', 'amex' ...
-    ->set02Transaction('sale', 'ecom')
+    ->set01PaymentCode('all') // ['card', 'stcpay', 'amex' ...]
+    ->set02Transaction(PaytabsEnum::TRAN_TYPE_SALE, PaytabsEnum::TRAN_CLASS_ECOM)
     ->set03Cart($cart_id, $currency, $amount, $cart_desc)
     ->set04CustomerDetails('first last', 'test@temp.com', '0555555555', 'baha street', 'Dubai', 'Dubai', 'ARE', '12345', '10.10.10.10')
     ->set05ShippingDetails(true)
     ->set06HideShipping(false)
     ->set07URLs($return_url, $callback_url)
-    ->set09Framed(false);
+    ->set09Framed(false)
+    ->set10Tokenise(true)
+    ->set99PluginInfo('API', 0, 0);
 
 
 $pp_params = $pt_holder->pt_build();
