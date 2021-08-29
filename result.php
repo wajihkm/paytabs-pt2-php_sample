@@ -11,7 +11,7 @@ if (!$transRef) die('Transaction reference is not set');
 
 //
 
-echo "<h2> Transaction reference: <b>{$transRef}</b> </h2>";
+echo "<h2> Transaction reference: {$transRef} </h2>";
 
 
 /** Verify PayTabs response: Option 1 */

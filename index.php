@@ -27,7 +27,7 @@ $pt_holder
     ->set07URLs($return_url, $callback_url)
     ->set09Framed(false)
     ->set10Tokenise(true)
-    ->set99PluginInfo('API', 0, 0);
+    ->set99PluginInfo('API', 0);
 
 
 $pp_params = $pt_holder->pt_build();
