@@ -1,6 +1,6 @@
 <?php
 
-require_once 'paytabs_core2.php';
+require_once 'paytabs_core.php';
 
 //
 
