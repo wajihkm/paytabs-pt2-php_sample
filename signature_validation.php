@@ -10,6 +10,12 @@ if ($response_str && $response_signature) {
     $is_valid_signature = $pt_api->is_valid_ipn($response_str, $response_signature, $server_key);
     $is_validation_req = true;
 }
+
+function calc_signature($data, $serverKey)
+{
+    $signature = hash_hmac('sha256', $data, $serverKey);
+    return $signature;
+}
 ?>
 
 <!DOCTYPE html>
@@ -65,8 +71,9 @@ if ($response_str && $response_signature) {
                         Invalid Signature
 
                         <p>
-                        <b>Calculated signature:</b>
-                        <?= $pt_api->calc_signature($response_str, $server_key) ?></p>
+                            <b>Calculated signature:</b>
+                            <?= calc_signature($response_str, $server_key) ?>
+                        </p>
                     </div>
             <?php
                 endif;

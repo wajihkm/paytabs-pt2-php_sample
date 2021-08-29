@@ -776,7 +776,7 @@ class PaytabsApi
     }
 
 
-    function is_valid_ipn($data, $signature, $serverkey = false)
+    function is_valid_ipn($data, $signature, $serverKey = false)
     {
         $server_key = $serverKey ?? $this->server_key;
 
